@@ -1,7 +1,7 @@
 # Secure RabbitMQ
-This is a simple ssl-enabled RabbitMQ Dockerfile that takes certs generated for unit testing in Apache NiFi, converts them to pem, and uses them as server certs for the RabbitMQ server.
+This is a simple ssl-enabled RabbitMQ Dockerfile that takes certs generated for unit testing by Apache NiFi and uses them the authenticate between NiFi and RabbitMQ.
 
-This allows a NiFi to speak to a RabbitMQ server with its test certs.
+This allows a NiFi to publish FlowFiles to a RabbitMQ server with generated test certs.
 
 ### RabbitMQ certs (password contained in mikeyo/CN...password):
 These were extracted from the p12 in mikeyo/ via the following commands:
