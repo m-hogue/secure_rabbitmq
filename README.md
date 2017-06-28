@@ -21,7 +21,7 @@ openssl pkcs12 -in CN\=mikeyo_OU\=NiFi.p12 -clcerts -nokeys -out mikeyo-pub.pem
  - client truststore: `mikeyo/localhost/truststore.jks`
  
 ### Instructions
-This repo isn't in the docker registry, so to build an image just run the build script `./build.sh`. This builds an image named `rabbitmq-ssl-nifi`.
+The Dockerfile in this repo isn't in the docker registry, so to build an image just run the build script `./build.sh`. This builds an image named `rabbitmq-ssl-nifi`.
 
 Once the image is built, you can run the image with the `./docker_run.sh` script. You can watch the logs with the `docker logs rabbit-name -f` command. The -f option tails (or follows) the log.
 
