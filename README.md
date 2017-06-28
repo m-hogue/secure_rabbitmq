@@ -19,3 +19,10 @@ openssl pkcs12 -in CN\=mikeyo_OU\=NiFi.p12 -clcerts -nokeys -out mikeyo-pub.pem
 ### NiFi SSL Context Service certs (passwords contained in mikeyo/localhost/nifi.properties):
  - client keystore: `mikeyo/localhost/keystore.jks`
  - client truststore: `mikeyo/localhost/truststore.jks`
+ 
+### Instructions
+This repo isn't in the docker registry, so to build an image just run the build script `./build.sh`. This builds an image named `rabbitmq-ssl-nifi`.
+
+Once the image is built, you can run the image with the `./docker_run.sh` script. You can watch the logs with the `docker logs rabbit-name -f` command. The -f option tails (or follows) the log.
+
+From there, you can build a NiFi flow with a `GenerateFlowFile` processor and a `PublishAMQP` processor configured to speak to the running RabbitMQ.
