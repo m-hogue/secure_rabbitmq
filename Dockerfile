@@ -8,6 +8,8 @@ RUN apt-get update \
 COPY rabbitmq.config /etc/rabbitmq/rabbitmq.config
 COPY localhost-priv.pem /home/certs
 COPY localhost-cert.pem /home/certs
-COPY cacert.pem /home/certs
+COPY ca.pem /home/certs
 
-run /bin/bash rabbitmq-server
+RUN rabbitmq-plugins enable rabbitmq_auth_mechanism_ssl --offline
+
+CMD ["rabbitmq-server"]
